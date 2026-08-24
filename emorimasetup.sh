@@ -4,8 +4,14 @@ if [ -e "/data/data/com.termux/files/home/storage" ]; then
     rm -rf /data/data/com.termux/files/home/storage
 fi
 termux-setup-storage
-yes | pkg update && yes | pkg upgrade -y && echo "y" | termux-setup-storage && yes | pkg install -y python python-pip clang make libffi openssl libjpeg-turbo libpng zlib freetype git cmake tsu libexpat && export PIP_NO_CACHE_DIR=0 && pip uninstall -y psutil && pip install --upgrade pip setuptools wheel && pip install --prefer-binary requests pytz pyjwt pycryptodome rich colorama flask pillow psutil discord.py python-socketio prettytable pystyle aiohttp || CFLAGS="-Wno-error=implicit-function-declaration" pip install psutil
+export CFLAGS="-Wno-error=implicit-function-declaration -Wno-error=incompatible-function-pointer-types"
+yes | pkg update && yes | pkg upgrade -y && yes | pkg install -y python clang make libffi openssl libjpeg-turbo libpng zlib freetype git cmake tsu libexpat python-psutil && export PIP_NO_CACHE_DIR=0
+
+python3 -m pip install --upgrade pip setuptools wheel
+
+# Đã loại bỏ psutil ra khỏi đây vì đã được cài bằng pkg phía trên
+pip install --prefer-binary requests pytz pyjwt pycryptodome rich colorama flask pillow discord.py python-socketio prettytable pystyle aiohttp
+
 echo "Successfully installed packages! Tool is ready to run!"
 echo "To start: su"
 echo "Then: cd /sdcard/Download && python emorima.py"
-
