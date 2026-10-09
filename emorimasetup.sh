@@ -19,4 +19,4 @@ python3 -m pip install --upgrade pip setuptools wheel
 
 pip install --prefer-binary requests pytz pyjwt pycryptodome rich colorama flask discord.py python-socketio prettytable pystyle aiohttp
 
-su -c "export PATH=\$PATH:/data/data/com.termux/files/usr/bin && export TERM=xterm-256color && cd /sdcard/Download && python emorima.py"
+su -c "export PATH=\$PATH:/data/data/com.termux/files/usr/bin && export TERM=xterm-256color && cd /sdcard/Download && python YamiRejoin.py"
